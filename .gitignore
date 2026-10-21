@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+
+# Node / Vite
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+*.log
+vite.log
+vite.err
+
+# Runtime data (SQLite / drawings / reviews / license / shots) — created by the backend on startup
+data/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Build artifacts
+backend/build/
+backend/dist/
+backend/*.spec.bak

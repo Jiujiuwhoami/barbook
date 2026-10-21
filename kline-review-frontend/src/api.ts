@@ -73,3 +73,6 @@ export const api = {
   /** 删除指定工作区 */
   deleteWorkspace: (id: string) =>
     j<{ deleted: string }>(`/api/workspaces/${encodeURIComponent(id)}`, { method: 'DELETE' }),
+}
+
+export default api

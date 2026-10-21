@@ -1,8 +1,8 @@
-# K线复盘工作台（K-line Review Studio）
+# BarBook
 
-桌面端 K 线复盘与交易训练工具：多周期同步回放、逐 K 揭线回放交易、复盘笔记、画线标注、ML 样本导出。数据全部本地存储（SQLite + JSON），行情离线可用。
+BarBook：桌面端 K 线复盘与交易训练工具。多周期同步回放、逐 K 揭线回放交易、复盘笔记、画线标注、ML 样本导出。数据全部本地存储（SQLite + JSON），行情离线可用。
 
-> 本仓库是**开源引流版**（功能受限，永久免费）。
+> 本仓库是 **BarBook 开源免费版**（功能受限，永久免费）。
 > 完整 Pro 功能（回放交易训练、ML 样本导出、无限制复盘/画线、全品种全历史）见 [发行说明](RELEASE.md)。
 
 ## 功能分层
@@ -26,7 +26,7 @@
 
 ```
 backend/               Python (FastAPI) 后端：行情抓取 / K 线 / 交易 / 复盘 / 画线 / 授权
-kline-review-frontend/ React + Vite 前端
+barbook-frontend/ React + Vite 前端
 data/                  运行时数据目录（K 线 SQLite、复盘/交易 JSON、截图），gitignored
 ```
 
@@ -50,7 +50,7 @@ python server.py
 ### 前端
 
 ```bash
-cd kline-review-frontend
+cd barbook-frontend
 npm install
 npm run dev          # 开发服务器，默认 5173
 npm run build        # 生产构建
@@ -69,7 +69,7 @@ python fetch_binance_data.py --symbol BTCUSDT --interval 1m --days 30
 ## 测试
 
 ```bash
-cd kline-review-frontend
+cd barbook-frontend
 npm run build
 # 端到端测试清单见 test.md（约 250 项，覆盖接口/UI/多视图/笔记/工作区）
 # 已执行子集见 test-results.md
@@ -86,9 +86,9 @@ npm run build
 
 ## 授权说明
 
-本开源版**不含任何授权/激活逻辑**——所有功能在服务端按免费限额开放，无需激活码。
+BarBook 开源版**不含任何授权/激活逻辑**——所有功能在服务端按免费限额开放，无需激活码。
 
-Pro 版（收费完整版）在本仓库基础上增加：
+BarBook Pro（收费完整版）在本仓库基础上增加：
 - P-256 ECDSA 离线激活码（`license.py` / `ecdsa_p256.py`）
 - 服务端 tier 限额强制（`tiers.py`）
 - Cython 防反编译（敏感模块编译为原生扩展）
@@ -99,4 +99,4 @@ Pro 版（收费完整版）在本仓库基础上增加：
 
 ## License
 
-MIT — 代码开源；Pro 激活码与完整版发行权归发行方所有。
+MIT — 代码开源；BarBook Pro 激活码与完整版发行权归发行方所有。

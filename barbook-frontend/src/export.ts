@@ -99,7 +99,7 @@ export function exportExt(format: ExportFormat): string {
 export function downloadExport(rows: ReviewExport[], format: ExportFormat, stamp?: number): string {
   const body = exportText(rows, format)
   const blob = new Blob([body], { type: exportMime(format) + ';charset=utf-8' })
-  const name = `kline-review-${new Date(stamp ?? Date.now()).toISOString().slice(0, 10)}.${exportExt(format)}`
+  const name = `barbook-${new Date(stamp ?? Date.now()).toISOString().slice(0, 10)}.${exportExt(format)}`
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url

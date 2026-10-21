@@ -1,6 +1,6 @@
 # 发行说明（开源引流版 → Pro 完整版）
 
-本仓库是 **K线复盘工作台** 的**开源引流版**，功能受限但永久免费，用于获取用户、收集反馈、建立社区。
+本仓库是 **BarBook** 的**开源引流版**，功能受限但永久免费，用于获取用户、收集反馈、建立社区。
 
 ## 两版关系
 
@@ -12,7 +12,7 @@
 | 分发 | 源码 + npm 构建 | 4 平台安装包 + 裸 exe |
 | 收入 | 无 | Pro 激活码 |
 
-**两者共享核心代码**：本仓库的 `backend/server.py`、`kline-review-frontend/src/` 是 Pro 版的直接前身。Pro 版在此基础上增加授权体系（`license.py` / `ecdsa_p256.py` / `tiers.py`）、Cython 防反编译、Tauri 桌面包。
+**两者共享核心代码**：本仓库的 `backend/server.py`、`barbook-frontend/src/` 是 Pro 版的直接前身。Pro 版在此基础上增加授权体系（`license.py` / `ecdsa_p256.py` / `tiers.py`）、Cython 防反编译、Tauri 桌面包。
 
 ## Pro 版新增能力
 

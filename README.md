@@ -1,6 +1,101 @@
 # BarBook
 
-BarBook：桌面端 K 线复盘与交易训练工具。多周期同步回放、逐 K 揭线回放交易、复盘笔记、画线标注、ML 样本导出。数据全部本地存储（SQLite + JSON），行情离线可用。
+BarBook: a desktop K-line review and trading-training tool. Multi-timeframe synchronized replay, bar-by-bar trade replay, review notes, and chart annotations. All data is stored locally (SQLite + JSON); market data works offline.
+
+> Release site: https://barbook.dpdns.org/
+>
+> This repository is the **open-source edition** — MIT licensed, limited features, free forever.
+
+## Features
+
+- **Multi-timeframe synchronized replay**: main/sub timeframes replay in lockstep, bar-by-bar reveal to reconstruct trading process
+- **Review notes**: flag each bar with category tags and remarks, archived by trading day
+- **Chart annotations**: trendlines, horizontals, rectangles, text, etc., revealed in sync with the replay
+- **Trade records**: entry/exit replay with automatic P&L and statistics
+- **Workspace save / restore**: snapshot and restore notes, annotations, and trades together
+- **Screenshot export**: export chart snapshots (PNG)
+- **CSV import**: import custom K-line data into the local database
+- **Market data fetch**: offline Binance download (open-source edition: 1 symbol, last 90 days)
+
+## Open-source limits (enforced server-side; returns 402 when exceeded)
+
+- Review notes: ≤ 50
+- Chart annotations: ≤ 50
+- Single symbol, last 90 days of history
+
+## Project Layout
+
+```
+backend/               Python (FastAPI) backend: market fetch / K-lines / trades / notes / annotations
+barbook-frontend/      React + Vite frontend
+data/                  Runtime data directory (K-line SQLite, notes/trade JSON, screenshots), gitignored
+```
+
+## Installation & Running
+
+### Prerequisites
+
+- Python 3.11+
+- Node.js 18+ (for building the frontend)
+- Network access (for initial Binance data download)
+
+### Backend
+
+```bash
+cd backend
+pip install fastapi "uvicorn[standard]" python-multipart requests
+python server.py
+# listens on 8000 by default; override with KLINE_PORT
+```
+
+### Frontend
+
+```bash
+cd barbook-frontend
+npm install
+npm run dev          # dev server, default port 5173
+npm run build        # production build
+```
+
+The frontend connects to the backend via `window.__KLINE_BASE__` (default `http://127.0.0.1:8000`).
+
+## Fetching Market Data
+
+```bash
+cd backend
+python fetch_binance_data.py --symbol BTCUSDT --interval 1m --days 30
+# supports 1m/5m/15m/30m/1h/4h/1d, etc.; data written to data/markets.db
+```
+
+## Testing
+
+```bash
+cd barbook-frontend
+npm run build
+# end-to-end checklist in test.md (~250 items covering API/UI/multi-view/notes/workspace)
+# executed subset in test-results.md
+```
+
+## Tech Stack
+
+| Layer | Implementation |
+|---|---|
+| Frontend | React 18 + TypeScript + Vite + klinecharts |
+| Backend | FastAPI + SQLite |
+| Data | Local storage, no server dependency |
+| Build | Vite production build |
+
+## License
+
+MIT — code is open source.
+
+---
+
+# 中文版
+
+## BarBook
+
+BarBook：桌面端 K 线复盘与交易训练工具。多周期同步回放、逐 K 揭线回放交易、复盘笔记、画线标注。数据全部本地存储（SQLite + JSON），行情离线可用。
 
 > 发行版：https://barbook.dpdns.org/
 >

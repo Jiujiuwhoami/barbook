@@ -1,4 +1,9 @@
+<a id="readme"></a>
 # BarBook
+
+<p align="center">
+  <a href="#readme"><strong>🇺🇸 English</strong></a> | <a href="#zh"><strong>🇨🇳 中文</strong></a>
+</p>
 
 BarBook: a desktop K-line review and trading-training tool. Multi-timeframe synchronized replay, bar-by-bar trade replay, review notes, and chart annotations. All data is stored locally (SQLite + JSON); market data works offline.
 
@@ -91,7 +96,12 @@ MIT — code is open source.
 
 ---
 
+<a id="zh"></a>
 # 中文版
+
+<p align="center">
+  <a href="#readme"><strong>🇺🇸 English</strong></a> | <a href="#zh"><strong>🇨🇳 中文</strong></a>
+</p>
 
 ## BarBook
 
